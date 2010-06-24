@@ -11,11 +11,8 @@
 
 
 
-
-
-
 /**** HTML5 blocks ****/
-section, header, footer, article {
+section, header, footer, article, figure, figcaption, aside {
     display: block;
 }
 
@@ -51,31 +48,62 @@ a:hover {
 a img { border: none; }
 
 #wrap {
-    width: 700px;
+    width: 800px;
     margin: 0 auto;
+    border-left: 1px dotted #CCC;
+    padding-left: 1.0em;
 }
 
 article {
-    width: 540px;
     position: relative;
-    padding-left: 160px;
-    margin-bottom: 1.5em;
-    padding-top: 1.0em;
-    border-top: 2px dotted #CCC;
+    padding-left: 0px;
+    margin-bottom: 1.0em;
+    border-left: 1px dotted #CCC;
+    border-bottom: 1px dotted #CCC;
+}
+
+article:after {
+    content: '';
+    display: block;
+    clear: both;
+    visibility: none;
+    height: 0;
+}
+
+article .content {
+    width: 500px;
+    float: left;
+    padding: 1.5em;
+    border-top: 1px dotted #CCC;
 }
 
 .meta {
+    float: left;
+    width: 180px;
+    border-top: 1px dotted #CCC;
+    border-left: 1px dotted #CCC;
+    padding: 1.5em;
+    margin-left: 1.0em;
+    position: relative;
+    margin-bottom: 1.0em;
+}
+
+.meta:before {
     position: absolute;
-    left: 0;
-    top: 1.0em;
-    width: 160px;
+    top: -2px;
+    left: -1.1em;
+    content: '';
+    display: block;
+    height: 90px;
+    border-left: 1px dotted #CCC;
+    width: 20px;
 }
 
 .meta time {
-
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
+    letter-spacing: 0.17em;
+    font-weight: 500;
+    font-size: 13px;
     color: #AAA;
 }
 
@@ -132,6 +160,16 @@ blockquote p:last-child { margin-bottom: 0; }
 }
 
 #page-header ul a:hover { background: #222; }
+
+
+ul.tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+
 </style>
 
     <script src="http://use.typekit.com/bqa1ehi.js"></script>
@@ -168,8 +206,8 @@ blockquote p:last-child { margin-bottom: 0; }
                     {block:Link}
                         <div class="content link">
                             <h2><a href="{URL}" {Target}>{Name}</a></h2>
+                            {block:Description}{Description}{/block:Description}
                         </div>
-                        {block:Description}{Description}{/block:Description}
                     {/block:Link}
                     {block:Quote}
                         <div class="content quote">
@@ -182,8 +220,8 @@ blockquote p:last-child { margin-bottom: 0; }
                     {block:Video}
                         <figure class="content video">
                             {Video-500}
+                            {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
                         </figure>
-                        {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
                     {/block:Video}
                     
                     <aside class="meta">
