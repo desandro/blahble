@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+	<title>{block:PostTitle}{PostTitle} &middot; {/block:PostTitle}{Title}</title>
+
+<style media="screen">
+
+
+
+
+
+
+
+
+/**** HTML5 blocks ****/
+section, header, footer, article {
+    display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, ul, ol, p, blockquote { margin-bottom: 1.0em; }
+
+ul, ol {
+    padding-left: 1.5em;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.45em;
+    background: #F5F5F5;
+    color: #222;
+}
+
+a { 
+    color: #D47; 
+    text-decoration: none;
+}
+
+a:hover {
+    color: #222;
+    background: hsla(330,100%,50%,.1);
+}
+
+a img { border: none; }
+
+#wrap {
+    width: 700px;
+    margin: 0 auto;
+}
+
+article {
+    width: 540px;
+    position: relative;
+    padding-left: 160px;
+    margin-bottom: 1.5em;
+    padding-top: 1.0em;
+    border-top: 2px dotted #CCC;
+}
+
+.meta {
+    position: absolute;
+    left: 0;
+    top: 1.0em;
+    width: 160px;
+}
+
+.meta time {
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: #AAA;
+}
+
+blockquote {
+    padding: 0.8em;
+    background: hsla(330,100%,50%,.05);
+}
+
+blockquote p:last-child { margin-bottom: 0; }
+
+
+#page-header h1 {
+    text-transform: uppercase;
+    font-size: 8.0em;
+}
+
+#page-header h1 a {
+    color: #EEE;
+}
+#page-header h1 a:hover { color: #D47; }
+
+
+#page-header h1 a * {
+    display: block;
+    line-height: 0.8em;
+    font-style: normal;
+    font-weight: 800;
+}
+
+#page-header h1 a em {
+    font-size: 1.35em;
+}
+
+#page-header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 3px;
+    top: 26px;
+}
+
+#page-header ul li {
+    margin-bottom: 3px;
+}
+
+#page-header ul a {
+    background: #E58;
+    color: #FFF;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 0.5em;
+    display: block;
+}
+
+#page-header ul a:hover { background: #222; }
+</style>
+
+    <script src="http://use.typekit.com/bqa1ehi.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+</head>
+<body class="tk-proxima-nova">
+
+    <div id="wrap">
+
+        <section id="page-header">
+            <h1><a href="/"><strong>DeSandro</strong> <em>Tumblr</em></a></h1>
+            <ul>
+                <li><a href="{RSS}">RSS</a></li>
+                <li><a href="/archive">Archive</a></li>
+            </ul>
+        </section>
+
+        <section id="posts">
+            {block:Posts}
+                <article id="{PostID}">
+                    {block:Text}
+                        <div class="content text">
+                            {block:Title}<h2>{Title}</h2>{/block:Title}
+                            {Body}
+                        </div>
+                    {/block:Text}
+                    {block:Photo}
+                        <figure class="content photo">
+                            {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}
+                            {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
+                        </figure>
+                    {/block:Photo}
+                    {block:Link}
+                        <div class="content link">
+                            <h2><a href="{URL}" {Target}>{Name}</a></h2>
+                        </div>
+                        {block:Description}{Description}{/block:Description}
+                    {/block:Link}
+                    {block:Quote}
+                        <div class="content quote">
+                            <blockquote>
+                                {Quote}
+                            </blockquote>
+                            {block:Source}&mdash; {Source}{/block:Source}
+                        </div>
+                    {/block:Quote}
+                    {block:Video}
+                        <figure class="content video">
+                            {Video-500}
+                        </figure>
+                        {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
+                    {/block:Video}
+                    
+                    <aside class="meta">
+                        <time>{DayOfMonth} {ShortMonth} {Year}</time>
+                        {block:HasTags}
+                            <ul class="tags">
+                                {block:Tags}
+                                    <li><a href="{TagURL}">{Tag}</a></li>
+                                {/block:Tags}
+                            </ul>
+                        {/block:HasTags}
+                    </aside>
+                </article>
+            {/block:Posts}
+        </section> <!-- #posts -->
+
+        <nav id="pagination">
+            <ul>
+                {block:PreviousPage}
+                    <li class="previous"><a href="{PreviousPage}">&laquo; previous</a></li>
+                {/block:PreviousPage}
+                <li class="current">{CurrentPage} of {TotalPages}</li>
+                {block:NextPage}
+                    <li class="next"><a href="{NextPage}">next &raquo;</a></li>
+                {/block:NextPage}
+            </ul>
+        </nav>
+
+    </div><!-- #wrap -->
+
+</body>
+</html>

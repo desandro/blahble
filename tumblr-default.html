@@ -1,0 +1,369 @@
+<html>
+
+<head>
+
+        <title>{block:PostTitle}{PostTitle} | {/block:PostTitle}{Title}</title>
+        <meta name="description" content="{MetaDescription}">
+        <meta name="color:Page Footer" content="#A34DBF">
+        <meta name="text:Subtitle" content="">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="shortcut icon" href="{Favicon}">
+        <style type="text/css">
+          body {
+          	background:          #FFF;
+          	font-family:         Helvetica, Sans-Serif;
+          	font-size:           12px;
+          	color:               #000;
+          }
+          
+          a {
+          	color:               #000;
+          	outline:             none;
+          	-webkit-transition:  color .2s linear;
+          }
+          
+          a:hover {
+          	text-decoration:     none;
+          	color:               #000;
+          }
+          
+          h1, h2, h3, h4, h5, h6 {
+          	font-weight:         normal;
+          	margin:              0px;
+          	padding:             0px;
+          	font-size:           100%;
+          }
+          
+          blockquote {
+          	border-left:         3px solid #000;
+          	padding:             0px 15px;
+          	margin:              5px 10px 5px 10px;
+          }
+          
+          img {
+          	border:              none;
+          }
+          
+          .clear {
+          	clear:               both;
+          }
+          
+          #flag {
+          	position:            fixed;
+          	top:                 15px;
+          	left:                15px;
+          	width:               330px;
+          }
+          
+          #flag h1 {
+          	font-size:           24px;
+          	display:             inline;
+          	line-height:         40px;
+          }
+          
+          #flag h1 a {
+          	text-decoration:     none;
+          }
+          
+          #flag h2 {
+          	font-size:           15px;
+          	display:             inline;
+          	line-height:         40px;
+          	color:               #2D2D2D;
+          }
+          
+          #flag #description {
+          	line-height:         20px;
+          	margin:              0px 0px 10px 0px;
+          }
+          
+          #tumblelog {
+          	width:               500px;
+          	margin:              0px auto;
+          	padding:             15px 0px 0px 0px;
+          }
+          
+          #tumblelog li#post {
+          	list-style:          none;
+          	margin:              0px 0px 60px 0px;
+          	position:            relative;
+          	line-height:         20px;
+          }
+
+          #tumblelog li#post:last-child {
+	        margin:              0px 0px 30px 0px;
+          }
+          
+          #tumblelog li#post ul {
+          	margin:              5px 10px 5px 10px;
+          	padding:             0px 15px;
+          }
+          
+          #tumblelog li#post ul li {
+          	list-style:          disc;
+          }
+          
+          #tumblelog li#post h1 {
+          	font-weight:         bold;
+          	margin:              0px 0px 4px 0px;
+          	font-size:           14px;
+          }
+          
+          #tumblelog li#post h1 a {
+          	text-decoration:     none;
+          }
+          
+          #tumblelog li#post h1#quote {
+          	font-weight:         normal;
+          	font-family:         Georgia;
+          	font-style:          italic;
+          }
+          
+          #tumblelog li#post h1#quote span {
+          	font-size:           20px;
+          }
+          
+          #tumblelog li#post ul#conversation {
+          	margin:              0px .5em 1.5em 0px;
+          	padding:             0px;
+          }
+          
+          #tumblelog li#post ul#conversation li {
+          	list-style:          none;
+          	padding:             .5em 0px;
+          }
+          
+          #tumblelog li#post ul#conversation li:first-child {
+          	padding:             0px 0px .5em 0px;
+          }
+          
+          #tumblelog li#post ul#conversation li .label {
+          	font-weight:         bold;
+          	margin-right:        5px;
+          }
+          
+          #tumblelog li#post #question {
+          	margin:              0px 0px 12px 0px;
+          }
+          
+          #tumblelog li#post #answer {
+          	margin:              0px;
+          }
+          
+          #tumblelog li#post #question strong, #tumblelog li#post #answer strong {
+          	text-transform:      uppercase;
+          }
+          
+          #tumblelog li#post #question strong a, #tumblelog li#post #answer strong a {
+          	text-decoration:     none;
+          }
+          
+          #tumblelog li#post #question p, #tumblelog li#post #answer p {
+          	display:             inline;
+          }
+
+          #tumblelog #digest {
+          	position:            absolute;
+          	top:                 0px;
+          	left:                500px;
+          	padding:             0px 0px 0px 30px;
+          	width:               150px;
+          	font-size:           11px;
+          	color:               #555;
+          }
+          
+          #tumblelog #digest a {
+          	text-decoration:     none;
+          	color:               #555;
+          }
+          
+          #tumblelog #digest a:hover {
+          	color:               #000;
+          }
+          
+          #tumblelog #digest #note_count a {
+          	color:               #CCC;
+          }
+          
+          #tumblelog #digest #note_count a:hover {
+          	color:               #F06;
+          }
+          
+          #tumblelog #notes {
+          	margin:              15px 0px 0px 0px;
+          	border-top:          1px solid #EEE;
+          }
+          
+          #tumblelog #notes #title {
+          	padding:             8px;
+          }
+
+          #tumblelog #notes ol.notes {
+          	padding:             0px;
+          	margin:              0px;
+          	list-style-type:     none;
+          	border-bottom:       1px solid #EEE;
+          }
+          
+          #tumblelog #notes ol.notes li.note {
+          	display:             block;
+          	border-top:          1px solid #EEE;
+          	padding:             8px;
+          }
+          
+          #tumblelog #notes ol.notes li.note img.avatar {
+          	vertical-align:      -4px;
+          	margin:              0px 10px 0px 0px;
+          	width:               16px;
+          	height:              16px;
+          }
+          
+          #tumblelog #notes ol.notes li.note blockquote {
+          	margin-left:         35px;
+          }
+          
+          #pagination {
+          	width:               500px;
+          	margin:              0px auto;
+          	padding:             0px 0px 20px 0px;
+          	text-align:          center;
+          }
+          
+          #pagination span {
+          	font-size:           11px;
+          	color:               #555;
+          }
+          
+          #pagination a {
+          	padding:             3px 4px 3px 4px;
+          	color:               {color:Page Footer};
+          	-webkit-transition:  background-color .2s linear;
+          	text-decoration:     none;
+          }
+          
+          #pagination a:hover {
+          	background:          {color:Page Footer};
+          	color:               #FFF;
+          }
+          
+          #footer {
+          	width:               500px;
+          	margin:              0px auto;
+          	padding:             0px 0px 30px 0px;
+          	text-align:          center;
+          	font-size:           11px;
+          	color:               #555;
+          	letter-spacing:      1px;
+          }
+          
+          #footer a {
+          	color:               {color:Page Footer};
+          	text-decoration:     none;
+          }
+          
+          #footer a:hover {
+          	color:               #000;
+          }{CustomCSS}
+        </style>
+
+</head>
+
+<body>
+
+<div id="flag">
+    <h1><a href="/">{Title}</a></h1>
+    {block:IfSubtitle}
+        <h2>&nbsp;&nbsp;/&nbsp;&nbsp;{text:Subtitle}</h2>
+    {/block:IfSubtitle}
+    {block:Description}
+        <div id="description">{Description}</div>
+    {/block:Description}
+    <div id="links">
+        <a href="{RSS}">RSS</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+        <a href="/archive">Archive</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+        <a href="/random">Random Post</a>
+        {block:AskEnabled}&nbsp;&nbsp;/&nbsp;&nbsp;<a href="/ask">Ask</a>{/block:AskEnabled}
+        {block:Twitter}&nbsp;&nbsp;/&nbsp;&nbsp;<a href="http://www.twitter.com/{TwitterUsername}" target="_blank">Twitter</a>{/block:Twitter}</div>
+</div>
+
+<ul id="tumblelog">
+  {block:Posts}<li id="post">
+    {block:Regular}
+        {block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+        {body}
+        {/block:PermalinkPage} 
+    {/block:Regular}
+    {block:Photo}
+        <div align="center">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}</div>
+        {block:Caption}{Caption}{/block:Caption}
+    {/block:Photo}
+    {block:Photoset}
+      {Photoset-500}
+      {block:Caption}{Caption}{/block:Caption}
+    {/block:Photoset}
+    {block:Link}
+        <h1><a href="{URL}" {Target}>{Name} &rarr;</a></h1>
+        {block:Description}{Description}{/block:Description}
+    {/block:Link}
+    {block:Quote}
+        <h1 id="quote"><span>&ldquo;</span> {Quote} <span>&rdquo;</span></h1>
+        {block:Source}&mdash; {Source}{/block:Source}
+    {/block:Quote}
+    {block:Video}
+        {Video-500}
+        {block:Caption}{Caption}{/block:Caption}
+        {/block:PermalinkPage} 
+    {/block:Video}
+    {block:Chat}
+      {block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+      <ul id="conversation">
+        {block:Lines}<li>{block:Label}<span class="label">{Label}</span>{/block:Label}<span>{Line}</span></li>{/block:Lines}
+      </ul>
+    {/block:Chat}
+    {block:Audio}
+      {AudioPlayerGrey}
+      {block:Caption}{Caption}{/block:Caption}
+    {/block:Audio}
+    {block:Answer}
+        <div id="question"><strong>{Asker} asked:</strong> {Question}</div>
+        <div id="answer"><strong>{Title} replied:</strong> {Answer}</div>
+    {/block:Answer}
+    <div id="digest">
+        <a href="{Permalink}">
+            {block:NewDayDate}
+                {DayOfMonth}{DayOfMonthSuffix} {ShortMonth} {Year} | {12Hour}:{Minutes} {AmPm}</a>
+            {/block:NewDayDate}
+            {block:SameDayDate}
+                <a href="{Permalink}">{12Hour}:{Minutes} {AmPm}</a>
+            {/block:SameDayDate}
+            {block:NoteCount}
+                <div id="note_count"><a href="{Permalink}#notes">&hearts; {NoteCount}</a></div>
+            {/block:NoteCount}
+    </div>
+    {block:PermalinkPage}
+        {block:PostNotes}
+        <div id="notes">
+          <div id="title"><a name="notes">{NoteCountWithLabel}</a></div>
+          {PostNotes}
+        </div>
+        {/block:PostNotes}
+    {/block:PermalinkPage}
+  </li>{/block:Posts}
+</ul>
+
+{block:Pagination}
+    <div id="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}">&laquo; previous</a>&nbsp;&nbsp;&nbsp;{/block:PreviousPage}
+        <span>{CurrentPage} of {TotalPages}</span>
+        {block:NextPage}&nbsp;&nbsp;&nbsp;<a href="{NextPage}">next &raquo;</a>{/block:NextPage}
+    </div>
+{/block:Pagination}
+
+{block:DayPage}{block:DayPagination}<div id="pagination">{block:PreviousDayPage}<a href="{PreviousDayPage}">&laquo; previous day</a>&nbsp;&nbsp;&nbsp;{/block:PreviousDayPage}{block:NextDayPage}&nbsp;&nbsp;&nbsp;<a href="{NextDayPage}">next day &raquo;</a>{/block:NextDayPage}</div>{/block:DayPagination}{/block:DayPage} 
+
+<!-- PLEASE THINK BEFORE REMOVING THE BELOW ACKNOWLEDGEMENT! -->
+<div id="footer">design by <a href="http://paperbridge.tumblr.com">liam smith</a>. powered by <a href="http://www.tumblr.com">tumblr</a>.</div>
+
+</body>
+
+</html>
