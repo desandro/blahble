@@ -8,9 +8,6 @@
 <style media="screen">
 
 
-
-
-
 /**** HTML5 blocks ****/
 section, header, footer, article, figure, figcaption, aside {
     display: block;
@@ -52,6 +49,7 @@ a img { border: none; }
     margin: 0 auto;
     border-left: 1px dotted #CCC;
     padding-left: 1.0em;
+    padding-top: 1.0em;
 }
 
 article {
@@ -68,6 +66,7 @@ article:after {
     clear: both;
     visibility: none;
     height: 0;
+    padding-bottom: 2.5em;
 }
 
 article .content {
@@ -85,7 +84,6 @@ article .content {
     padding: 1.5em;
     margin-left: 1.0em;
     position: relative;
-    margin-bottom: 1.0em;
 }
 
 .meta:before {
@@ -117,13 +115,15 @@ blockquote p:last-child { margin-bottom: 0; }
 
 #page-header h1 {
     text-transform: uppercase;
-    font-size: 8.0em;
+    font-size: 8.8em;
+    padding: 0.1em;
 }
 
 #page-header h1 a {
-    color: #EEE;
+    color: #F5F5F5;
+    text-shadow: 0 1px #CCC,  1px 0 #CCC, 0 -1px #CCC, -1px 0 #CCC, -1px -1px #CCC, 1px 1px #CCC, -1px 1px #CCC, 1px -1px #CCC, 0 1px 10px #FFF;
 }
-#page-header h1 a:hover { color: #D47; }
+#page-header h1 a:hover { color: #D47; text-shadow: none; }
 
 
 #page-header h1 a * {
@@ -164,10 +164,56 @@ blockquote p:last-child { margin-bottom: 0; }
 
 ul.tags {
     list-style: none;
-    margin: 0;
+    margin: 1.0em 0 0 -1.0em;
     padding: 0;
-    font-size: 14px;
 }
+
+ul.tags li {
+    overflow: hidden;
+}
+
+ul.tags li a:after {
+    content: '';
+    display: block;
+    border-color: #F5F5F5 transparent;
+    border-style: solid;    
+    border-width: 1.0em;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -.075em;
+    left: -1.0em;
+}
+
+ul.tags li a:before {
+    content: '●';
+    display: block;
+    color: #F5F5F5;
+    position: absolute;
+    left: 0.8em;
+    top: 0.0em;
+    -moz-border-radius: 0.25em;
+    font-size: 1.2em;
+}
+
+ul.tags li a {
+    position: relative;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: hsla(330,100%,50%,.4);
+    background: #F5F5F5;
+    padding: .0em 0.5em .0em 2.2em;
+    display: inline-block;
+}
+
+ul.tags li a:hover {
+    background: hsla(330,100%,50%,.8);
+    color: #F5F5F5;
+    
+}
+
+
 
 
 </style>
