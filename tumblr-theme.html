@@ -98,7 +98,7 @@ article .content {
 }
 
 .meta time {
-    text-transform: uppercase;
+    text-transform: uppercase; 
     letter-spacing: 0.17em;
     font-weight: 500;
     font-size: 13px;
@@ -113,6 +113,17 @@ blockquote {
 blockquote p:last-child { margin-bottom: 0; }
 
 
+/**** Audio ****/
+
+img.album-art {
+    width: 160px;
+    height: 160px;
+    float: left;
+    margin: 0 1.0em 1.0em 0;
+}
+
+/**** Header ****/
+
 #page-header h1 {
     text-transform: uppercase;
     font-size: 8.8em;
@@ -121,7 +132,7 @@ blockquote p:last-child { margin-bottom: 0; }
 
 #page-header h1 a {
     color: #F5F5F5;
-    text-shadow: 0 1px #CCC,  1px 0 #CCC, 0 -1px #CCC, -1px 0 #CCC, -1px -1px #CCC, 1px 1px #CCC, -1px 1px #CCC, 1px -1px #CCC, 0 1px 10px #FFF;
+    text-shadow: 0 1px #CCC,  1px 0 #CCC, 0 -1px #CCC, -1px 0 #CCC, -1px -1px #CCC, 1px 1px #CCC, -1px 1px #CCC, 1px -1px #CCC;
 }
 #page-header h1 a:hover { color: #D47; text-shadow: none; }
 
@@ -269,6 +280,16 @@ ul.tags li a:hover {
                             {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
                         </figure>
                     {/block:Video}
+                    {block:Audio}
+                        <figure class="content audio">
+                            {block:AlbumArt}<img class="album-art" src="{AlbumArtURL}" />{/block:AlbumArt}
+                            {AudioPlayerBlack}
+                            {block:Artist}{Artist}{/block:Artist}
+                            {block:TrackName}<em>{TrackName}</em>{/block:TrackName}
+                            {block:Album}{Album}{/block:Album}
+                            {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
+                        </figure>
+                    {/block:Audio}
                     
                     <aside class="meta">
                         <time>{DayOfMonth} {ShortMonth} {Year}</time>
