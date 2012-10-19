@@ -26,6 +26,8 @@
     <section id="posts">
       {block:Posts}
         <article id="{PostID}">
+          <time><a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a></time>
+
           {block:Text}
             <div class="content text">
               {block:Title}<h2>{Title}</h2>{/block:Title}
@@ -54,7 +56,9 @@
           {/block:Quote}
           {block:Video}
             <figure class="content video">
-              {Video-500}
+              <div class="video-player">
+                {Video-500}
+              </div>
               {block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
             </figure>
           {/block:Video}
@@ -70,7 +74,6 @@
           {/block:Audio}
           
           <aside class="meta">
-            <time><a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a></time>
             {block:HasTags}
               <ul class="tags">
                 {block:Tags}
@@ -79,21 +82,24 @@
               </ul>
             {/block:HasTags}
           </aside>
+
         </article>
       {/block:Posts}
     </section> <!-- #posts -->
 
-    <nav id="pagination">
-      <ul>
-        {block:PreviousPage}
-          <li class="previous"><a href="{PreviousPage}">&laquo; previous</a></li>
-        {/block:PreviousPage}
-        <li class="current">{CurrentPage} of {TotalPages}</li>
-        {block:NextPage}
-          <li class="next"><a href="{NextPage}">next &raquo;</a></li>
-        {/block:NextPage}
-      </ul>
-    </nav>
+    {block:Pagination}
+      <nav id="pagination">
+        <ul>
+          {block:PreviousPage}
+            <li class="previous"><a href="{PreviousPage}">&laquo; previous</a></li>
+          {/block:PreviousPage}
+          <li class="current">{CurrentPage} of {TotalPages}</li>
+          {block:NextPage}
+            <li class="next"><a href="{NextPage}">next &raquo;</a></li>
+          {/block:NextPage}
+        </ul>
+      </nav>
+    {/block:Pagination}
 
   </div><!-- #wrap -->
 

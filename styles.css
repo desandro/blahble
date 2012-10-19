@@ -18,8 +18,9 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.45em;
-  background: #F5F5F5;
-  color: #222;
+  background: white;
+  color: #555;
+  position: relative;
 }
 
 a { 
@@ -35,35 +36,36 @@ a:hover {
 a img { border: none; }
 
 #wrap {
-  width: 800px;
-  margin: 0 auto;
-  border-left: 1px dotted #CCC;
-  padding-left: 1.0em;
-  padding-top: 1.0em;
+  height: 100%;
+  position: relative;
 }
 
 article {
-  position: relative;
-  padding-left: 0px;
   margin-bottom: 1.0em;
-  border-left: 1px dotted #CCC;
-  border-bottom: 1px dotted #CCC;
+  border-bottom: 1px dashed #DDD;
+  position: relative;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
+/* clear fix */
 article:after {
   content: '';
   display: block;
   clear: both;
   visibility: none;
   height: 0;
-  padding-bottom: 2.5em;
 }
 
 article .content {
   width: 500px;
-  float: left;
-  padding: 1.5em;
-  border-top: 1px dotted #CCC;
+  margin: 0 auto;
+}
+
+.content img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 0 auto 1.0em;
 }
 
 .meta {
@@ -76,16 +78,6 @@ article .content {
   position: relative;
 }
 
-.meta:before {
-  position: absolute;
-  top: -2px;
-  left: -1.1em;
-  content: '';
-  display: block;
-  height: 90px;
-  border-left: 1px dotted #CCC;
-  width: 20px;
-}
 
 .meta time {
   text-transform: uppercase; 
@@ -216,4 +208,3 @@ ul.tags li a:hover {
   background: hsla(330,100%,50%,.8);
   color: #F5F5F5;
 }
-
