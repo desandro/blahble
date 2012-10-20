@@ -1,6 +1,8 @@
 /**** HTML5 blocks ****/
 section, header, footer, article, figure, figcaption, aside {
   display: block;
+  position: relative;
+  min-height: 100%;
 }
 
 * {
@@ -21,6 +23,7 @@ body {
   background: white;
   color: #555;
   position: relative;
+  min-height: 100%;
 }
 
 a { 
@@ -38,14 +41,15 @@ a img { border: none; }
 #wrap {
   height: 100%;
   position: relative;
+  padding-top: 40px;
 }
 
 article {
   margin-bottom: 1.0em;
   border-bottom: 1px dashed #DDD;
   position: relative;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 80px;
+  padding-bottom: 200px;
 }
 
 /* clear fix */
@@ -62,34 +66,37 @@ article .content {
   margin: 0 auto;
 }
 
-.content img {
-  display: block;
-  max-width: 100%;
-  margin-bottom: 0 auto 1.0em;
-}
-
-.meta {
-  float: left;
-  width: 180px;
-  border-top: 1px dotted #CCC;
-  border-left: 1px dotted #CCC;
-  padding: 1.5em;
-  margin-left: 1.0em;
-  position: relative;
-}
-
-
-.meta time {
+article time {
   text-transform: uppercase; 
-  letter-spacing: 0.17em;
-  font-weight: 500;
+  text-align: center;
+  display: block;
+  margin-bottom: 90px;
+  letter-spacing: 0.25em;
   font-size: 13px;
   color: #AAA;
 }
 
+article time a {
+  
+}
+
+.content img {
+  display: block;
+  max-width: 100%;
+}
+
+.meta {
+}
+
+.content img,
+.video-player {
+  margin: 0 auto 1.0em;
+}
+
+
 blockquote {
   padding: 0.8em;
-  background: hsla(330,100%,50%,.05);
+  background: hsla(330, 100%, 50%, .08);
 }
 
 blockquote p:last-child { margin-bottom: 0; }
@@ -107,46 +114,43 @@ img.album-art {
 /**** Header ****/
 
 #page-header h1 {
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
   text-transform: uppercase;
-  font-size: 8.8em;
-  padding: 0.1em;
+  letter-spacing: 0.2em;
+  font-size: 18px;
+  
 }
 
 #page-header h1 a {
-  color: #F5F5F5;
-  text-shadow: 0 1px #CCC,  1px 0 #CCC, 0 -1px #CCC, -1px 0 #CCC, -1px -1px #CCC, 1px 1px #CCC, -1px 1px #CCC, 1px -1px #CCC;
-}
-#page-header h1 a:hover { color: #D47; text-shadow: none; }
-
-
-#page-header h1 a * {
+  padding: 0.5em;
+  color: #DDD;
   display: block;
-  line-height: 0.8em;
-  font-style: normal;
-  font-weight: 800;
+}
+#page-header h1 a:hover {
+  color: #D47;
+  background: transparent;
 }
 
-#page-header h1 a em {
-  font-size: 1.35em;
-}
 
 #page-header ul {
   list-style: none;
-  padding: 0;
+  padding: 10px 0 0;
   margin: 0;
-  position: absolute;
-  right: 3px;
-  top: 26px;
+  text-align: center;
+  
 }
 
 #page-header ul li {
   margin-bottom: 3px;
+  display: inline-block;
 }
 
 #page-header ul a {
-  background: #E58;
-  color: #FFF;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  font-size: 13px;
   text-transform: uppercase;
   padding: 0 0.5em;
   display: block;
@@ -161,35 +165,35 @@ img.album-art {
 
 ul.tags {
   list-style: none;
-  margin: 1.0em 0 0 -1.0em;
-  padding: 0;
+  text-align: center;
 }
 
 ul.tags li {
-  overflow: hidden;
+  display: inline-block;
 }
 
 ul.tags li a:after {
   content: '';
   display: block;
-  border-color: #F5F5F5 transparent;
+  border-color: white transparent;
   border-style: solid;  
-  border-width: 1.0em;
+  border-width: 0.92em;
+  border-left: none;
   width: 0;
   height: 0;
   position: absolute;
-  top: -.075em;
-  left: -1.0em;
+  top: 0;
+  left: 0;
 }
 
 ul.tags li a:before {
   content: '●';
   display: block;
-  color: #F5F5F5;
+  color: white;
   position: absolute;
   left: 0.8em;
   top: 0.0em;
-  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
   font-size: 1.2em;
 }
 
@@ -200,11 +204,45 @@ ul.tags li a {
   font-weight: 600;
   color: hsla(330,100%,50%,.4);
   background: #F5F5F5;
-  padding: .0em 0.5em .0em 2.2em;
+  padding: .0em 0.5em .0em 2em;
   display: inline-block;
 }
 
 ul.tags li a:hover {
-  background: hsla(330,100%,50%,.8);
-  color: #F5F5F5;
+  background: hsla(330,100%,50%,1);
+  color: white;
+}
+
+
+/* pagination
+------------------------- */
+
+#pagination {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 20px 0;
+  font-weight: 600;
+}
+
+#pagination ul {
+  list-style: none;
+  position: relative;
+}
+
+#pagination .previous {
+  position: absolute;
+  left: 20px;
+  top: 0;
+}
+
+#pagination .next {
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+
+
+#pagination a {
+  padding: 0.5em;
 }
