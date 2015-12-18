@@ -1,9 +1,4 @@
 /**** HTML5 blocks ****/
-section, header, footer, article, figure, figcaption, aside {
-  display: block;
-  position: relative;
-  min-height: 100%;
-}
 
 * {
   margin: 0;
